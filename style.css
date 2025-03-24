@@ -1,0 +1,184 @@
+:root {
+    --primary-color: #4a6fa5;
+    --secondary-color: #ff6b6b;
+    --accent-color: #4ecdc4;
+    --background-color: #f7fff7;
+    --text-color: #292f36;
+    --board-color: #f0f8ff;
+    --snake-color: #ff6b6b;
+    --ladder-color: #4ecdc4;
+    --player-color: #ff6b6b;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.board-container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    background-color: var(--board-color);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* .board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url('./images/sal.png')
+} */
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url('./images/sal.jpg');
+    background-size: contain; /* Ensures the whole image fits within the board */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    font-weight: bold;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.cell:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.player {
+    width: 20px;
+    height: 20px;
+    background-color: var(--player-color);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.snake {
+    position: absolute;
+    background-color: var(--snake-color);
+    z-index: 5;
+}
+
+.ladder {
+    position: absolute;
+    background-color: var(--ladder-color);
+    z-index: 5;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.dice {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+    user-select: none;
+}
+
+.dice:hover {
+    transform: scale(1.05);
+}
+
+.dice:active {
+    transform: scale(0.95);
+}
+
+.status {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.snakes-ladders-info {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.legend-color {
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+}
+
+.ladder-color {
+    background-color: var(--ladder-color);
+}
+
+.snake-color {
+    background-color: var(--snake-color);
+}
+
+@media (max-width: 768px) {
+    .board-container {
+        width: 90vw;
+        height: 90vw;
+    }
+    
+    .cell {
+        font-size: 10px;
+    }
+}
